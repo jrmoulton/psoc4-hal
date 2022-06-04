@@ -1,0 +1,46 @@
+[package]
+authors = ["Jared Moulton <jaredmoulton3@gmail.com>"]
+categories = ["embedded", "hardware-support", "no-std"]
+description = "HAL for the psoc4 CY8C4248LQI_BL583 microcontroller"
+documentation = "https://docs.rs/psoc4-hal"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+name = "psoc4-hal"
+readme = "README.md"
+repository = "https://github.com/jrmoulton/psoc4-hal"
+version = "0.1.0"
+
+[package.metadata.docs.rs]
+features = ["rt"]
+
+[dependencies]
+cortex-m = "0.6.1"
+cortex-m-rt = "0.6.11"
+rcc = "0.10.0"
+
+[dependencies.cast]
+default-features = false
+version = "0.2.3"
+
+[dependencies.embedded-hal]
+features = ["unproven"]
+version = "0.2.3"
+
+[dependencies.psoc4-pac]
+path = "../psoc4-pac"
+
+[dev-dependencies]
+cortex-m-semihosting = "0.3.5"
+panic-halt = "0.2.0"
+panic-semihosting = "0.5.2"
+
+[features]
+rt = ["psoc4-pac/rt"]
+
+[profile.dev]
+codegen-units = 1
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
