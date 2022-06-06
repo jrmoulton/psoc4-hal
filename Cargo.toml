@@ -17,6 +17,7 @@ features = ["rt"]
 cortex-m = "0.6.1"
 cortex-m-rt = "0.6.11"
 rcc = "0.10.0"
+paste = "1.0.7"
 
 [dependencies.cast]
 default-features = false
